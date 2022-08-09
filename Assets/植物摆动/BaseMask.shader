@@ -169,7 +169,7 @@
 					//Wind 顶点偏移 
 #if _WIND
 
-					float time25 = ((_TimeParameters.x) * _Speed);
+					float time25 = ((_TimeParameters.x) * _Speed)+ mul(GetObjectToWorldMatrix(), float4(float3(0, 0, 0), 1)).xyz/1.0*10;
 					float2 voronoiSmoothId0 = 0;
 					float2 texCoord26 = v.uv0.xy * float2(1, 1) + float2(0, 0);
 					float2 coords25 = texCoord26 * _num;
