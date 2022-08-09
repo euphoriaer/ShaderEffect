@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_BaseMask
+  m_Name: Custom_BaseMask 1
   m_Shader: {fileID: 4800000, guid: cff0bfd26b0a2674a866d9d4c4681db9, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -56,7 +56,7 @@ Material:
     - _UseNewMASK: 0
     - _WIND: 0
     - _ZTestMode: 4
-    - _ZWriteMode: 1
+    - _ZWriteMode: 0
     m_Colors:
     - _CloudShadowOffset: {r: 0, g: 0, b: 0, a: 0}
     - _CloudShadowSpeed: {r: 0, g: 0, b: 0, a: 0}
