@@ -33,6 +33,10 @@
 		_CloudShadowOffset("CloudShadowOffset", Vector) = (0,0,0,0)
 		[Toggle(_WIND)]_WIND("WindMask", int) = 0
 		_Speed("Speed", Float) = 10
+		_Move("Move", Float) = 0
+		_num("Warp", Float) = 10
+		_Strength("Strength", Float) = 10
+		
 	}
 
 		SubShader
@@ -96,13 +100,19 @@
 					float2 _CloudShadowSpeed;
 					float2 _CloudShadowOffset;
 				#endif
+
+		
 				#if _WIND
+					float _num;
 					float _Speed;
+					float _Move;
+					float _Strength;
+					float _Range;
 				#endif
 				struct VertexInput
 				{
 					float4 vertex       : POSITION;
-					float2 uv               : TEXCOORD0;
+					float2 uv0               : TEXCOORD0;
 					UNITY_VERTEX_INPUT_INSTANCE_ID
 				};
 
@@ -115,6 +125,40 @@
 					UNITY_VERTEX_OUTPUT_STEREO
 				};
 
+				float2 voronoihash25(float2 p)
+				{
+
+					p = float2(dot(p, float2(127.1, 311.7)), dot(p, float2(269.5, 183.3)));
+					return frac(sin(p) * 43758.5453);
+				}
+
+				float voronoi25(float2 v, float time, inout float2 id, inout float2 mr, float smoothness, inout float2 smoothId)
+				{
+					float2 n = floor(v);
+					float2 f = frac(v);
+					float F1 = 8.0;
+					float F2 = 8.0; float2 mg = 0;
+					for (int j = -1; j <= 1; j++)
+					{
+						for (int i = -1; i <= 1; i++)
+						{
+							float2 g = float2(i, j);
+							float2 o = voronoihash25(n + g);
+							o = (sin(time + o * 6.2831) * 0.5 + 0.5); float2 r = f - g - o;
+							float d = 0.5 * dot(r, r);
+							if (d < F1) {
+								F2 = F1;
+								F1 = d; mg = g; mr = r; id = o;
+							}
+							else if (d < F2) {
+								F2 = d;
+
+							}
+						}
+					}
+					return F1;
+				}
+
 				VertexOutput vert(VertexInput v)
 				{
 					VertexOutput o = (VertexOutput)0;
@@ -122,19 +166,32 @@
 					UNITY_TRANSFER_INSTANCE_ID(v, o);
 					UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-					//顶点偏移 
+					//Wind 顶点偏移 
 #if _WIND
-					float3 objToWorld = mul(GetObjectToWorldMatrix(), float4(float3(0, 0, 0), 1)).xyz;
-					float4 appendResult = (float4((objToWorld.x + cos(_TimeParameters.x+ _Speed)), objToWorld.y, objToWorld.z, 0.0));
+
+					float time25 = ((_TimeParameters.x) * _Speed);
+					float2 voronoiSmoothId0 = 0;
+					float2 texCoord26 = v.uv0.xy * float2(1, 1) + float2(0, 0);
+					float2 coords25 = texCoord26 * _num;
+					float2 id25 = 0;
+					float2 uv25 = 0;
+					float voroi25 = voronoi25(coords25, time25, id25, uv25, 0, voronoiSmoothId0);
+					float2 texCoord45 = v.uv0.xy * float2(1, 1) + float2(0, 0);
+					float clampResult = clamp((texCoord45.y - _Range), 0.0, 1.0);
+					float temp_output_49_0 = (((voroi25 - _Move) * _Strength) * clampResult);
+					float3 objToWorld11 = mul(GetObjectToWorldMatrix(), float4(float3(0, 0, 0), 1)).xyz;
+					float3 appendResult29 = (float3(temp_output_49_0, objToWorld11.y, objToWorld11.z));
+
+					float3 vertexValue = appendResult29;
 					
-					v.vertex.xyz += appendResult.xyz;
+					
+					v.vertex.xyz += vertexValue;
 					
 #endif
 					VertexPositionInputs vertexInput = GetVertexPositionInputs(v.vertex.xyz);
-					o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+					o.uv = TRANSFORM_TEX(v.uv0, _MainTex);
 					o.positionWS = TransformObjectToWorld(v.vertex.xyz);
 					o.clipPos = TransformWorldToHClip(o.positionWS);
-					//o.positionWS = mul(unity_ObjectToWorld, v.vertex);
 					return o;
 				}
 
