@@ -185,7 +185,7 @@
 					float3 vertexValue = appendResult29;
 					
 					
-					v.vertex.xyz += vertexValue;
+					v.vertex.x += vertexValue.x;
 					
 #endif
 					VertexPositionInputs vertexInput = GetVertexPositionInputs(v.vertex.xyz);

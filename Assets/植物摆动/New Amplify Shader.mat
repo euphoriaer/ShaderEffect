@@ -44,7 +44,7 @@ Material:
     - _Range: 0.25
     - _Range1: 1
     - _Speed: 2.36
-    - _Strength: 1.37
+    - _Strength: 0.03
     - _num: 1
     m_Colors:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
