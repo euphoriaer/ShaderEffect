@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Gauss
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity
+    Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18912\n7;23;1920;988;1375.175;489.1595;1;True;True\nNode;AmplifyShaderEditor.CustomExpressionNode;3;-117.3389,-68.3575;Inherit;False;float2
+    uvs[5]={UV,UV,UV,UV,UV}@$$uvs[0] = UV@$uvs[1] =  UV +float2(_MainTex_TexelSize.x*
+    2.0, _MainTex_TexelSize.y * 2.0) * _BlurSize@$uvs[2] = UV - float2(_MainTex_TexelSize.x*
+    2.0, _MainTex_TexelSize.y * 2.0) * _BlurSize@$uvs[3] = UV +float2(_MainTex_TexelSize.x*
+    2.0, _MainTex_TexelSize.y * 2.0) * _BlurSize@$uvs[4] = UV - float2(_MainTex_TexelSize.x*
+    2.0, _MainTex_TexelSize.y * 2.0) * _BlurSize@$$$float3 sum = tex2D(_MainTex,
+    uvs[0]).rgb * weight[0]@$sum += tex2D(_MainTex, uvs[1]).rgb * weight[1]@$sum
+    += tex2D(_MainTex, uvs[2]).rgb * weight[2]@$sum += tex2D(_MainTex, uvs[3]).rgb
+    * weight[1]@$sum += tex2D(_MainTex, uvs[4]).rgb * weight[2]@$$return float4(sum,1.0)@$$$$$$$$$$$$$;3;Create;5;True;_MainTex;SAMPLER2D;;In;;Inherit;False;True;weight;FLOAT3;0,0,0;In;;Inherit;False;True;UV;FLOAT2;0,0;In;;Inherit;False;True;_MainTex_TexelSize;FLOAT4;0,0,0,0;In;;Inherit;False;True;_BlurSize;FLOAT;0;In;;Inherit;False;My
+    Custom Expression;True;False;1;-1;;False;5;0;SAMPLER2D;;False;1;FLOAT3;0,0,0;False;2;FLOAT2;0,0;False;3;FLOAT4;0,0,0,0;False;4;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.TextureCoordinatesNode;5;-140.5657,-307.7021;Inherit;False;1;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.TexelSizeNode;16;-369.0699,115.9061;Inherit;False;-1;1;0;SAMPLER2D;;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.FunctionInput;18;-603.1746,16.84055;Inherit;False;_BlurSize;1;1;False;1;0;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;15;-643.0699,-104.0939;Inherit;False;Weight;3;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;2;-605,-324.5;Inherit;False;TexTure;9;2;False;1;0;SAMPLER2D;0;False;1;SAMPLER2D;0\nNode;AmplifyShaderEditor.FunctionOutput;0;318,-22;Inherit;True;True;-1;Output;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nWireConnection;3;0;2;0\nWireConnection;3;1;15;0\nWireConnection;3;2;5;0\nWireConnection;3;3;16;0\nWireConnection;3;4;18;0\nWireConnection;5;2;2;0\nWireConnection;16;0;2;0\nWireConnection;0;0;3;0\nASEEND*/\n//CHKSM=C0CF0A3BC32CFCE501F0DEB08155171D2D49F8CE"
+  m_functionName: 
+  m_description: "\u9AD8\u65AF\u6A21\u7CCA"
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0
