@@ -24,8 +24,12 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5725fa8ee04e1be449af059f5735cd81, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: fe1b85574d64f0b46a28ad40821fed81, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 1def740f2314c6b4691529cadeee2e9c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 368c8f1ef5fe49b43ac0bfcda5630931, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -35,7 +39,17 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
+    - _BlurSize: 3
+    - _BlurSize1: 2.47
     - _Float0: 0.5
+    - _NoiseSpeed: 0
+    - _NoiseSpeedY: 0
+    - _Offset: 18.3
+    - _Offset1: 1
+    - _Offset2: 1
+    - _Offset3: 1
+    - _Scale: 1.89
+    - _Strength: 1.83
     - _TessEdgeLength: 16
     - _TessMax: 25
     - _TessMaxDisp: 25
@@ -43,6 +57,8 @@ Material:
     - _TessPhongStrength: 0.5
     - _TessValue: 16
     m_Colors:
+    - _Color0: {r: 1, g: 1, b: 1, a: 0.70980394}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Vector0: {r: 0.4026, g: 0.2442, b: 0.0545, a: 0}
+    - _Vector0: {r: 1.8, g: 3.14, b: 2.8, a: 12.28}
+    - _Weight: {r: 0.5, g: 0.22, b: 0.17, a: 0}
   m_BuildTextureStacks: []
