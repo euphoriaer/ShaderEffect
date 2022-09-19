@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mohu
+  m_Name: Gauss_Mask_UI
   m_Shader: {fileID: 4800000, guid: fab0650739b436e42a96d5b8c2b6ec4e, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -42,6 +42,7 @@ Material:
     - _BlurSize: 3
     - _BlurSize1: 2.47
     - _Float0: 0.5
+    - _MaskRange: 220.8
     - _NoiseSpeed: 0
     - _NoiseSpeedY: 0
     - _Offset: 18.3
@@ -49,7 +50,7 @@ Material:
     - _Offset2: 1
     - _Offset3: 1
     - _Scale: 1.89
-    - _Strength: 1.83
+    - _Strength: 0
     - _TessEdgeLength: 16
     - _TessMax: 25
     - _TessMaxDisp: 25
